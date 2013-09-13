@@ -9,7 +9,7 @@ module Tennis
       @player1.opponent = @player2
       @player2.opponent = @player1
     end
-
+    #Returns the player specified in the argument's
     def wins_ball(player_num)
       if player_num == 1
         player1.points+=1
@@ -17,6 +17,19 @@ module Tennis
         player2.points+=1
       end
     end
+
+    def scores
+      if (@player1.points <= 3 && @player1.opponent.points <= 3) && (@player1.points - @player1.opponent.points == 1)
+        return 'advantage'      
+      elsif (@player1.points <= 3 && @player1.opponent.points <= 3) && (@player1.points == @player1.opponent.points) 
+        return 'deuce'      
+      else 
+        return 'Play Again!'      
+      end
+    end  
+    # def wins_game()
+
+    # end
   end
 
   class Player
@@ -45,24 +58,25 @@ module Tennis
         return 'forty'          
       end
     end
+    
+    
   end
 end 
 
 
-# def scoring
-        
-#       elsif (player1.points >= 3 && player1.opponent.points >= 3) && (player1 - player1.opponent == 1){
-#         return 'advantage for #{player}'
-#       }
-#       elsif (player1.points >= 3 && player1.opponent.points >= 3) && (player1.points == player1.opponent.points) {
-#         return 'deuce'
-#       }
-#       else {
-#         return 'Play Again!'
-#       }
-#       end    
-#     end
+# class Set 
+#   attr_accessor :game1, :game2, :game3
 
+#   def initialize(game1, game2, game3)
+#     @game_tracker = [@game1, @game2, @game3]
+#   end
+
+#   def set_winner()
+
+#   end
+        
+#     # end
+# end
       
 
 
